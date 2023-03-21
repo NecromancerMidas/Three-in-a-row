@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,13 +14,14 @@ namespace Three_in_a_row
         {
             if (board[4].isEmpty)
             {
-                Square.setSquareOpponent(board,4);
-                
+                Square.setSquareOpponent(board, 4);
+
+
             }
             else
             {
-                int index = Randomer.Randomizer(0, 8);
-                while (!board[index].isEmpty)
+                int index = 0;
+                do
                 {
                     index = Randomer.Randomizer(0, 8);
                     if (board[index].isEmpty)
@@ -27,12 +29,13 @@ namespace Three_in_a_row
                         Square.setSquareOpponent(board, index);
                         break;
                     }
-                }
+
+                    {
+
+                    }
+
+                } while (!board[index].isEmpty);
             }
-
-
-
-
         }
 
     }
